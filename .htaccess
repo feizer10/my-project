@@ -1,0 +1,42 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Базовий URL
+RewriteBase /
+
+# Якщо файл або директорія існують фізично, використовуємо їх
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Перенаправляємо всі запити на index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Дозволяємо доступ до статичних файлів
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Встановлюємо кодування UTF-8
+AddDefaultCharset UTF-8
+
+# Встановлюємо часовий пояс
+SetEnv TZ Europe/Kiev
+
+# Налаштування PHP
+php_value display_errors 1
+php_value display_startup_errors 1
+php_value error_reporting E_ALL
+
+# Встановлюємо максимальний розмір завантажуваних файлів
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+
+# Встановлюємо максимальний час виконання скрипта
+php_value max_execution_time 30
+
+# Встановлюємо максимальний час очікування даних
+php_value max_input_time 60
+
+# Встановлюємо ліміт пам'яті
+php_value memory_limit 128M 

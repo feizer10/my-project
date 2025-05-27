@@ -1,0 +1,34 @@
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PHP files
+vendor/
+composer.lock
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Cache and temporary files
+*.cache
+temp/
+tmp/
+cache/ 
